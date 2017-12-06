@@ -1,12 +1,9 @@
+/**
+ * Класс реализует калькулятор.
+ */
 public class Calculater {
 
     private int result;
-
-    public void add(int ... params) {
-        for (Integer param : params) {
-            this.result += param;
-        }
-    }
 
     public int getResult() {
         return this.result;
@@ -16,35 +13,52 @@ public class Calculater {
         this.result = 0;
     }
 
-    public static void main(String[] arg) {
-        System.out.println("Calculating ...");
-        int first = Integer.valueOf(arg[0]);
-        int second = Integer.valueOf(arg[1]);
-        System.out.println("Summ " + summ(first, second));
-        System.out.println("diff " + diff(first, second));
-        System.out.println("mult " + mult(first, second));
-        System.out.println("div " + div(first, second));
+    /**
+     * Волняет сложение.
+     * @args Входящие аргументы
+     */
+    public void add(int ... args) {
+        for (Integer arg : args) {
+            this.result += arg;
+        }
     }
 
-    static public int summ(int x, int y) {
-        return x + y;
+    /**
+     * Волняет вычитание.
+     * @args Входящие аргументы
+     */
+    public void sub(int ... args) {
+        for (Integer arg : args) {
+            this.result -= arg;
+        }
     }
 
-    static public int diff(int x, int y) {
-        return x - y;
+    /**
+     * Волняет умножение.
+     * @args Входящие аргументы
+     */
+    public void mult(int ... args) {
+        for (Integer arg : args) {
+            this.result *= arg;
+        }
     }
 
-    static public int mult(int x, int y) {
-        return x * y;
+    /**
+     * Волняет деление.
+     * @args Входящие аргументы
+     */
+    public void div(int ... args) throws Exception {
+        if (args.length > 0) {
+            for (Integer arg : args) {
+                if (arg != 0) {
+                    this.result /= arg;
+                } else {
+                    throw new Exception("Error, You try to div on zero");
+                }
+            }
+        } else {
+            throw new Exception("Error, You should enter minimum one argument");
+        }
     }
-
-    static public int div(int x, int y) {
-        return x / y;
-    }
-
-    /*static public float pow(float x, float y) {
-        return Math.pow(x, y);
-    }*/
-
 
 }

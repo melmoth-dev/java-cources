@@ -7,6 +7,8 @@ public class InteractRunner {
             Calculater calc = new Calculater();
             String exit = "no";
             while (!exit.equals("yes")){
+                System.out.println("Enter operation (+//-//*////):");
+                String operation = reader.next();
                 System.out.println("Enter first arg: ");
                 String first = reader.next();
                 System.out.println("Enter second arg: ");
@@ -14,7 +16,7 @@ public class InteractRunner {
                 calc.add(Integer.valueOf(first), Integer.valueOf(second));
                 System.out.println("Result: " + calc.getResult());
                 calc.clearResult();
-                System.out.println("Exit (yes|no): ");
+                System.out.println("Exit (yes//no): ");
                 exit = reader.next();
             }
 
